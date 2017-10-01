@@ -64,7 +64,13 @@ namespace RegistHelper
                 //keep trying to do it in the following 5 minute
                 if (curTime.Hour == item.getHour() && curTime.Minute - item.getMinute() <= 5 )
                 {
-                    if ("ResetAll".Equals(item.getName())) { resetAll(); continue; } //it is time to reset all
+                    //it is time to reset all
+                    if ("ResetAll".Equals(item.getName())) {
+
+                        resetAll();
+                        item.HasDone = true;
+                        continue;
+                    } 
                     try
                     {
                         new Thread(item.startProcess).Start();
