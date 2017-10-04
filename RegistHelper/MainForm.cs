@@ -73,7 +73,9 @@ namespace RegistHelper
                     } 
                     try
                     {
-                        new Thread(item.startProcess).Start();
+                        Thread th = new Thread(item.startProcess);
+                        th.Start();
+                        th.Join();
                     }
                     catch (Exception excep) { logToFile("Exception:" + excep.Message); }
                 }
@@ -137,8 +139,8 @@ namespace RegistHelper
 
             foreach (XElement elem in items)
             {
-                string name = elem.Element("name").Value;
-                string time = elem.Element("time").Value;
+                string name = elem.Element("name").Value.Trim();
+                string time = elem.Element("time").Value.Trim();
                 string[] tm = time.Split(':');
                 if(tm.Length >=2)
                 {
@@ -159,6 +161,7 @@ namespace RegistHelper
                     invalidItems.Add(name + " : " + time);
                 }
             }
+            
             //show invalid items
             if(invalidItems.Count > 0)
             {
@@ -192,6 +195,13 @@ namespace RegistHelper
         {
             this.Show();
             this.WindowState = FormWindowState.Normal;
+        }
+        
+        //query user if he really wants to close
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("关闭该窗体将会退出应用程序！如你只是想隐藏窗体，请点击最小化！\n是否退出？", "提示", MessageBoxButtons.OKCancel);
+            if (dr == DialogResult.Cancel) e.Cancel = true;
         }
 
         //exit the application
@@ -227,7 +237,7 @@ namespace RegistHelper
                 e.Graphics.DrawString(listBox.Items[e.Index].ToString(), e.Font, brush, e.Bounds);
             }
         }
-        
+
     }
 
     class Item :IComparable

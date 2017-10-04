@@ -1,16 +1,32 @@
-﻿2017/9/30  20:00
+﻿2017/10/3  13:42
+Exception on file DoRegist_nyoj.py :
+拒绝访问。
+
+2017/10/3  13:45
+Exception on file DoRegist_nyoj.py :
+拒绝访问。
+
+2017/10/3  13:47
+Exception on file DoRegist_nyoj.py :
+拒绝访问。
+
+2017/10/3  13:47
+Exception on file DoRegist_nyoj.py :
+拒绝访问。
+
+2017/10/3  13:52
+Exception on file DoRegist_nyoj.py :
+拒绝访问。
+
+2017/10/3  15:00
 Exception on file DoRegist_qmx.py :
 拒绝访问。
 
-2017/9/30  20:01
+2017/10/3  20:00
 Exception on file DoRegist_qmx.py :
 拒绝访问。
 
-2017/10/1  8:00
-Exception on file DoRegist_qmx.py :
-拒绝访问。
-
-2017/10/1  8:00
+2017/10/4  8:00
 Exception on file DoRegist_qmx.py :
 拒绝访问。
 
