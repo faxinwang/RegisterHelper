@@ -40,7 +40,7 @@ namespace RegistHelper
             {
                 readConfigFile();
             }
-            timer.Interval = 20*1000; //every 20 second trigers
+            timer.Interval = 25*1000; //every 25 second trigers
             timer.Tick += Timer_Tick;
             timer.Start();
         }
@@ -62,13 +62,11 @@ namespace RegistHelper
 
                 //if it is time to do a item or it did not finished successfully
                 //keep trying to do it in the following 5 minute
-                if (curTime.Hour == item.getHour() && curTime.Minute - item.getMinute() <= 5 )
+                if (curTime.Hour == item.getHour() && Math.Abs(item.getMinute() - curTime.Minute)<=3 )
                 {
                     //it is time to reset all
                     if ("ResetAll".Equals(item.getName())) {
-
                         resetAll();
-                        item.HasDone = true;
                         continue;
                     } 
                     try
@@ -320,7 +318,7 @@ namespace RegistHelper
                     if (line.Contains("res_successful")) hasDone = true;
                     else MainForm.logToFile(line);
                 }
-               // p.WaitForExit(1000);
+                p.WaitForExit(20000);//20s
                 p.Kill();
                 p.Close();
             }
