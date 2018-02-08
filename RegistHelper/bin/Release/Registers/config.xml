@@ -1,24 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <RegisterList>
+
   <item>
-    <name>DoRegist_qmx.py</name>
-    <time>10:30</time>
+	<name>DoRegist_qmx.py</name>
+	<time>9:30</time>
   </item>
 
   <item>
-    <name>DoRegist_qmx.py</name>
-    <time>15:28</time>
+	<name>DoRegist_qmx.py</name>
+	<time>15:30</time>
   </item>
-
+  
   <item>
-    <name>DoRegist_qmx.py</name>
-    <time>22:00</time>
+	<name>DoRegist_qmx.py</name>
+	<time>19:30</time>
   </item>
 
   <item>
     <name>DoRegist_nyoj.py</name>
-    <time>18:46</time>
+    <time>16:17</time>
   </item>
+
 
   <item>
     <name>ResetAll</name>

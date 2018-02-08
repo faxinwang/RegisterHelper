@@ -1,23 +1,15 @@
 # -*- coding:utf-8 -*-
-from selenium import webdriver
-import time
+import requests
 
-browser = webdriver.Chrome()
-timeToWait = 20
+login_page = "https://www.ctguqmx.com/account/ajax/login_process/"
+login_data = {"user_name":"1094828998@qq.com","password":"******"}
+regist_page1 = "https://www.ctguqmx.com/qiandao/"
+regist_page2 = "http://172.25.5.133/index.php/Qiandao/doQd"
 try:
-    browser.set_page_load_timeout(timeToWait)
-    browser.get('https://www.ctguqmx.com/account/login/')
-    browser.find_element_by_id('aw-login-user-name').send_keys('1094828998@qq.com')
-    browser.find_element_by_id('aw-login-user-password').send_keys('******') 
-    browser.find_element_by_id('login_submit').click()
-    browser.get('https://www.ctguqmx.com/')
-    time.sleep(1);
-    browser.find_element_by_link_text('签到').click()
-    browser.find_element_by_id('qd_button').click()
-    print('res_successful')
-    time.sleep(1)
-    browser.close()
+    Se = requests.Session()
+    resp = Se.post(login_page, login_data)
+    resp = Se.get(regist_page1)
+    resp = Se.get(regist_page2)
+    if resp.text.count("签到成功") >= 1: print("res_success")    
 except Exception as e:
-    print("page load timeout after waiting for", timeToWait ,"second")
-    browser.close()
-browser.quit()
+    print(e)

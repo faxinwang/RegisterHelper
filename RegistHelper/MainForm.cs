@@ -291,7 +291,7 @@ namespace RegistHelper
             //if this is a python file, then call python interpreter
             if(name.EndsWith(".py"))
             {
-                p.StartInfo.FileName = "python";
+                p.StartInfo.FileName = "python3";
                 p.StartInfo.Arguments = fileName;
             }
             //if this is a executable file, just call it
@@ -315,10 +315,10 @@ namespace RegistHelper
                 string line;
                 while((line =p.StandardOutput.ReadLine())!= null)
                 {
-                    if (line.Contains("res_successful")) hasDone = true;
+                    if (line.Contains("res_success") || line.Contains("RES_SUCCESS")) hasDone = true;
                     else MainForm.logToFile(line);
                 }
-                p.WaitForExit(20000);//20s
+               // p.WaitForExit(20000);//20s
                 p.Kill();
                 p.Close();
             }

@@ -1,2 +1,5 @@
 RegistHelper/obj
 RegistHelper/bin
+*.vs/
+*.pdb
+*.suo
